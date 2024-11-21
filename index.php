@@ -15,3 +15,4 @@ include("./common/nav.php");
 
 <?php
 include("./common/footer.php");
+?>

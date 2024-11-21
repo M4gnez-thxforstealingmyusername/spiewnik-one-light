@@ -1,41 +1,30 @@
-nav, footer {
+nav, footer, main{
     background-image: linear-gradient(to right, orange, gold);
     border-radius: 10px;
 
     padding: 15px;
+    margin-top: 10px;
 }
 
-.navContainer {
-    display: flex;
-    width: fit-content;
-
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.navItem {
-    background-color: transparent;
-    border: 3px solid black;
-    border-radius: 10px;
-
-    font-size: x-large;
-    font-weight: bold;
-
-    margin-left: 5px;
-    margin-right: 5px;
-    padding: 10px;
-
-    user-select: none;
-}
-
-.navItem:hover {
-    background-color: rgba(255, 235, 200, 0.6);
-}
-
-.navItem:active {
-    background-color: rgb(255, 235, 200);
+body {
+    background-color: #111111;
+    width: 100%;
 }
 
 footer {
     clear: both;
+}
+
+a {
+    color: #333333;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+p {
+    font-size: large;
+}
+
+li {
+    font-size: 120%;
 }
