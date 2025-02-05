@@ -1,4 +1,4 @@
-Założenia projektowe spiewnik ONE light, poprawka 1
+Założenia projektowe spiewnik ONE light, poprawka 2
 # 1. Opis projektu
 spiewnik to internetowy system gromadzenia i wyszukiwania pieśni, a także tworzenia z nich prezentacji.
 # 2. Cel
@@ -10,19 +10,36 @@ spiewnik składa się z następujących części:
 * strona użytkownika napisana głównie w językach PHP, HTML, CSS oraz JS, umożliwiająca użytkownikowi przeglądanie, dodawanie, edycję i usuwanie pieśni oraz prezentacji
 ## 3.1 baza danych
 Stworzona z użyciem języka MySQL, tabele:
-* user - dane kont użytkowników
-* city - wspólnota użytkownika
-* song - pieśń i akordy
-* presentation - prezentacja
+* user (id, login, displayName, password, cityId, joinDate, authorizationLevel) - dane kont użytkowników
+* city (id, cityName) - wspólnota użytkownika lub "inne"
+* song (id, title, userId, text, chord, uploadDate) - pieśń i akordy
+* presentation (id, title, userId, songs, uploadDate, isPermanent) - prezentacja
 ## 3.2 strona serwera
 Pobiera dane z bazy danych i przesyła je do strony użytkownika, powinna umożliwiać:
 * tworzenie konta
+    * sprawdzenie danych
+    * hashowanie hasła
+    * dodanie danych do serwera
+    * przeniesienie do strony logowania
 * logowanie
+    * sprawdzenie danych
+    * pobranie użytkownika z podanym loginem
+    * weryfikacja hashu hasła
+    * utworzenie sesji
+    * dodanie zmiennej sesji o wartości poziomu uprawnień
+    * przeniesienie na stronę główną
 * wylogowywanie
-* pobieranie listy użytkowników
+    * usunięcie danych sesji
+    * zamknięcie sesji
+    * przeniesienie na stronę główną
+* pobieranie listy użytkowników (bez hashy)
+    * funkcja możliwa do wywołania w php
 * pobieranie listy miast
+    * funkcja możliwa do wywołania w php
 * pobieranie, dodawanie, edycję i usuwanie pieśni
+    * funkcja możliwa do wywołania w php
 * pobieranie, dodawanie, edycję i usuwanie prezentacji
+    * funkcja możliwa do wywołania w php
 ## 3.3 strona użytkownika
 Witryna internetowa, graficzny interfejs, umożliwia użytkownikowi łatwą i intuicyjną komunikację ze stroną serwera.
 ### 3.3.1 szablon ogólny:
