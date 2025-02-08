@@ -1,4 +1,4 @@
-Założenia projektowe spiewnik ONE light, poprawka 2
+Założenia projektowe spiewnik ONE light, poprawka 3
 # 1. Opis projektu
 spiewnik to internetowy system gromadzenia i wyszukiwania pieśni, a także tworzenia z nich prezentacji.
 # 2. Cel
@@ -51,7 +51,7 @@ Witryna internetowa, graficzny interfejs, umożliwia użytkownikowi łatwą i in
 * ostatnie 10 dodanych pieśni
 * odnośnik do ogólnej instrukcji
 ### 3.3.3 songs
-* wyświetla pieśni w formacie id, title, user, każda pieśń odnosi do podstrony song danej pieśni
+* wyświetla pieśni w formacie id, title, user, uploadDate każda pieśń odnosi do podstrony song danej pieśni
 * 24 pieśni na stronę, obsługa w PHP
 * odnośnik do podstrony new.php
 * pasek wyszukiwania według tytułu
