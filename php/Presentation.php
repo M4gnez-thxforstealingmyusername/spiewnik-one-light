@@ -21,6 +21,25 @@ class Presentation {
         return Conn::conn()->query("SELECT * FROM `presentation`");
     }
 
+    static function getTop() {
+        return Conn::conn()->query("SELECT id, title FROM `presentation` ORDER BY id DESC LIMIT 10")->fetch_all(MYSQLI_ASSOC);
+    }
+
+    static function getPage($page, $search) {
+        $start = 0 + ($page - 1) * 24;
+        $end = $start + 24;
+
+        $searchTerm = "%$search%";
+
+        $stmt = Conn::conn()->prepare("SELECT * FROM `presentation` WHERE title LIKE ? ORDER BY id DESC LIMIT $start, $end");
+
+        $stmt->bind_param("s", $searchTerm);
+
+        $stmt->execute();
+
+        return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    }
+
     static function add($title, $userId, $songs, $isPermanent) {
         $stmt = Conn::conn()->prepare("INSERT INTO `presentation` values (DEFAULT, ?, ?, ?, DEFAULT, ?)");
 

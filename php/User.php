@@ -5,6 +5,18 @@ class User {
         return Conn::conn()->query("SELECT id, displayName, cityId, joinDate, authorizationLevel FROM `user`")->fetch_all(MYSQLI_ASSOC);
     }
 
+    static function getOne($id) {
+        $stmt = Conn::conn()->prepare("SELECT id, displayName, cityId, joinDate, authorizationLevel FROM `user` WHERE `id` = ?");
+
+        $stmt->bind_param("i", $id);
+
+        $stmt->execute();
+
+        $result = $stmt->get_result();
+
+        return $result->fetch_assoc();
+    }
+
     static function getName($id) {
         $stmt = Conn::conn()->prepare("SELECT displayName FROM `user` WHERE `id` = ?");
 
@@ -47,13 +59,17 @@ class User {
         $stmt->execute();
 
         if($stmt->get_result()->num_rows > 0)
-            return false;
+            return 2;
 
         $stmt = Conn::conn()->prepare("INSERT INTO `user` values (DEFAULT, ?, ?, ?, ?, DEFAULT, DEFAULT)");
 
         $stmt->bind_param("sssi", $login, $displayName, $passwordHash, $cityId);
 
-        return $stmt->execute();
+        $result = $stmt->execute() ? 1 : 0;
+
+        User::login($login, $password);
+
+        return $result;
     }
 
     static function login($login, $password) {
