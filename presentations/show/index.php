@@ -22,6 +22,18 @@
 
     slides.push("");
 
+    document.addEventListener("click", (e) => {
+        e.preventDefault();
+
+        nextSlide();
+    });
+
+    document.addEventListener("contextmenu", (e) => {
+        e.preventDefault();
+
+        previousSlide();
+    });
+
     document.addEventListener("keydown", (e) => {
         if(e.key == "ArrowRight")
             nextSlide();
