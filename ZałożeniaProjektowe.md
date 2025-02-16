@@ -1,4 +1,4 @@
-Założenia projektowe spiewnik ONE light, poprawka 3
+Założenia projektowe spiewnik ONE light, poprawka 4
 # 1. Opis projektu
 spiewnik to internetowy system gromadzenia i wyszukiwania pieśni, a także tworzenia z nich prezentacji.
 # 2. Cel
@@ -63,7 +63,7 @@ Witryna internetowa, graficzny interfejs, umożliwia użytkownikowi łatwą i in
 * upload date
 * przycisk odnoszący do strony edit.php
 * przycisk usuwający za potwierdzeniem daną pieśń
-### 3.3.5 song/edit.php
+### 3.3.5 songs/edit.php
 * pozwala edytować istniejącą pieśń
 * dostęp tylko po zalogowaniu
 * wyświetla tytuł, tekst i akordy w polach edycyjnych
@@ -95,7 +95,7 @@ Witryna internetowa, graficzny interfejs, umożliwia użytkownikowi łatwą i in
 * przycisk odnoszący do strony edit.php
 * przycisk usuwający za potwierdzeniem daną prezentację
 * przycisk uruchamiający daną prezentację
-### 3.3.9 presentation/edit.php
+### 3.3.9 presentations/edit.php
 * pozwala edytować istniejącą prezentację
 * dostęp tylko po zalogowaniu
 * przycisk odświeżający zapisaną lokalnie listę pieśni
@@ -104,7 +104,7 @@ Witryna internetowa, graficzny interfejs, umożliwia użytkownikowi łatwą i in
 * każda pieśń posiada przyciski przesuwające ją w górę lub w dół w kolejności oraz przycisk usuń
 * przycisk dodania nowej pieśni do prezentacji, otwierający pole wyszukiwania, obsługa w JS
 * przycisk wysyłający dane do skryptu strony serwera aktualizującego dane w bazie
-### 3.3.10 presentation/new.php
+### 3.3.10 presentations/new.php
 * pozwala dodać nową prezentację do bazy danych
 * dostęp tylko po zalogowaniu
 * odnośnik do instrukcji tworzenia prezentacji
@@ -114,7 +114,7 @@ Witryna internetowa, graficzny interfejs, umożliwia użytkownikowi łatwą i in
 * każda dodana pieśń posiada przyciski przesuwające ją w górę lub w dół w kolejności oraz przycisk usuń
 * checkbox stałej prezentacji
 * przycisk wysyłający dane do skryptu strony serwera dodającego dane do bazy
-### 3.3.11 presentation/show
+### 3.3.11 presentations/show
 * ekran prezentacji
 * otwierana w nowym oknie, możliwie najbardziej pozbawionym cech własnych przeglądarki (zakładek, pasku bocznego itd)
 * wyświetla osobno, na każdym slajdzie tekst jednej zwrotki
@@ -147,7 +147,7 @@ Witryna internetowa, graficzny interfejs, umożliwia użytkownikowi łatwą i in
 * miasto
 * data dołączenia
 * poziom uprawnień
-### 3.3.16 presentation/live
+### 3.3.16 presentations/live
 * ekran tworzenia prezentacji na żywo
 * nie wymaga logowania
 * użytkownik wybiera pieśni i tworzy z nich prezentację bez możliwości jej zapisu
@@ -161,6 +161,8 @@ Witryna internetowa, graficzny interfejs, umożliwia użytkownikowi łatwą i in
 * dostęp tylko dla administracji (4 poziom uprawnień)
 * nadawanie uprawnień użytkownikom do poziomu 3 włącznie
 * usuwanie wszystkich prezentacji nie oznaczonych jako stałe
+### 3.3.18 logout.php
+* wylogowuje użytkownika
 # 4. Objaśnienia
 ## Dla użytkowników
 ### 4.1 miasto

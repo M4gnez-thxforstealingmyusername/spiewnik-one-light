@@ -30,11 +30,18 @@ else {
         ?>
     </ol>
 
-    <a href="<?php echo SERVER_ROOT ?>/presentations/edit.php?id=<?php echo $song["id"] ?>">Edytuj</a>
-    <a href="<?php echo SERVER_ROOT ?>/presentations/delete.php?id=<?php echo $song["id"] ?>">Usuń</a>
-    <a href="<?php echo SERVER_ROOT ?>/presentations/show/?id=<?php echo $song["id"] ?>">Uruchom</a>
+    <a href="<?php echo SERVER_ROOT ?>/presentations/edit.php?id=<?php echo $presentation["id"] ?>">Edytuj</a>
+    <a href="<?php echo SERVER_ROOT ?>/presentations/delete.php?id=<?php echo $presentation["id"] ?>">Usuń</a>
+    <a href="" onclick="openPresentation(event)">Uruchom</a>
 <?php
 }
 
 footerComponent();
 ?>
+
+<script>
+    function openPresentation(event) {
+        event.preventDefault();
+        window.open("<?php echo SERVER_ROOT ?>/presentations/show/?songs=<?php echo $presentation["songs"] ?>", '_blank', 'width=1920,height=1080,fullscreen=yes,toolbar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no');
+    }
+</script>

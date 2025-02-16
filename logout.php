@@ -1,6 +1,6 @@
 <?php
-    require "config.php";
+require "config.php";
 
-    User::logout();
+User::logout();
 
-    header("Location: " . SERVER_ROOT);
+header("Location: " . SERVER_ROOT);

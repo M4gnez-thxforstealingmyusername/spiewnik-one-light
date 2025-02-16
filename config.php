@@ -10,6 +10,7 @@ require "components/presentationComponent.php";
 require "components/headerComponent.php";
 require "components/footerComponent.php";
 require "components/linkListComponent.php";
+require "components/accessDenyComponent.php";
 
 define('SERVER_ROOT', '/spiewnik-one-light');
 

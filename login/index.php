@@ -17,7 +17,7 @@ if(isset($_POST["login"]) && isset($_POST["password"])) {
 ?>
     <form method="post">
         <?php echo isset($result) && $result == false ? "<p>Nie udało się zalogować, spróbuj ponownie</p>" : "" ?>
-        <input type="text" name="login" placeholder="Login..." require>
+        <input type="text" name="login" placeholder="Login..." required value="<?php echo $_POST["login"] ?? "" ?>">
         <input type="password" name="password" placeholder="Hasło..." require>
         <input type="submit">
     </form>

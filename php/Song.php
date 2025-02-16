@@ -36,6 +36,17 @@ class Song {
         return Conn::conn()->query("SELECT id, title FROM `song` WHERE id IN ($idString) ORDER BY FIELD (id, $idString)")->fetch_all(MYSQLI_ASSOC);
     }
 
+    static function getTextList($idString) {
+        $idList = explode(",", $idString);
+
+        foreach($idList as $id) {
+            if(!is_numeric($id))
+                return [];
+        }
+
+        return Conn::conn()->query("SELECT `text` FROM `song` WHERE id IN ($idString) ORDER BY FIELD (id, $idString)")->fetch_all(MYSQLI_ASSOC);
+    }
+
     static function getTop() {
         return Conn::conn()->query("SELECT id, title FROM `song` ORDER BY id DESC LIMIT 10")->fetch_all(MYSQLI_ASSOC);
     }
@@ -64,9 +75,9 @@ class Song {
     }
 
     static function update($id, $title, $text, $chord) {
-        $stmt = Conn::conn()->prepare("UPDATE `song` WHERE id = ? set `title` = ?, `text` = ?, `chord` = ?");
+        $stmt = Conn::conn()->prepare("UPDATE `song` set `title` = ?, `text` = ?, `chord` = ? WHERE id = ?");
 
-        $stmt->bind_param("isss", $id, $title, $text, $chord);
+        $stmt->bind_param("sssi", $title, $text, $chord, $id);
 
         $stmt->execute();
     }

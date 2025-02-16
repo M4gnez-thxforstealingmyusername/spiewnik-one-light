@@ -5,6 +5,21 @@ class User {
         return Conn::conn()->query("SELECT id, displayName, cityId, joinDate, authorizationLevel FROM `user`")->fetch_all(MYSQLI_ASSOC);
     }
 
+    static function getAdmin($name) {
+        if($_SESSION["authorizationLevel"] == 4) {
+            $stmt = Conn::conn()->prepare("SELECT id, `login`, displayName, cityId, joinDate, authorizationLevel FROM `user` WHERE displayName LIKE ?");
+
+            $searchTerm = "%$name%";
+
+            $stmt->bind_param("s", $searchTerm);
+
+            $stmt->execute();
+
+            return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+        }
+        return [];
+    }
+
     static function getOne($id) {
         $stmt = Conn::conn()->prepare("SELECT id, displayName, cityId, joinDate, authorizationLevel FROM `user` WHERE `id` = ?");
 
@@ -37,16 +52,22 @@ class User {
         return Conn::conn()->query("SELECT id, displayName, cityId, joinDate, authorizationLevel FROM `user`");
     }
 
-    static function getPrivate($id) {
+    static function getPrivate() {
+        if (session_status() === PHP_SESSION_NONE)
+            session_start();
+
+        if (!isset($_SESSION["id"]))
+            return null;
+
         $stmt = Conn::conn()->prepare("SELECT id, `login`, displayName, cityId, joinDate, authorizationLevel  FROM `user` WHERE `id` = ?");
 
-        $stmt->bind_param("i", $id);
+        $stmt->bind_param("i", $_SESSION["id"]);
 
         $stmt->execute();
 
         $result = $stmt->get_result();
 
-        return $result->fetch_assoc()["displayName"];
+        return $result->fetch_assoc();
     }
 
     static function register($login, $displayName, $password, $cityId) {
@@ -92,7 +113,8 @@ class User {
         if(!password_verify($password, $passwordHash))
             return false;
 
-        session_start();
+        if (session_status() === PHP_SESSION_NONE)
+            session_start();
         $_SESSION["id"] = $user["id"];
         $_SESSION["authorizationLevel"] = $user["authorizationLevel"];
 
@@ -100,13 +122,26 @@ class User {
     }
 
     static function logout() {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE)
+            session_start();
         session_unset();
         session_destroy();
     }
 
     static function ping() {
-        session_start();
+        if (session_status() === PHP_SESSION_NONE)
+            session_start();
         return isset($_SESSION["id"]);
+    }
+
+    static function setAuthorizationLevel($id, $authorizationLevel) {
+        if(!$_SESSION["authorizationLevel"] == 4)
+            return;
+
+        $stmt = Conn::conn()->prepare("UPDATE `user` SET authorizationLevel = ? WHERE `id` = ?");
+
+        $stmt->bind_param("ii", $authorizationLevel, $id);
+
+        $stmt->execute();
     }
 }

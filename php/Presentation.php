@@ -5,6 +5,10 @@ class Presentation {
         return Conn::conn()->query("SELECT * FROM `presentation`")->fetch_all(MYSQLI_ASSOC);
     }
 
+    static function countNotPermanent() {
+        return Conn::conn()->query("SELECT COUNT(*) AS `count` FROM `presentation` WHERE isPermanent = 0")->fetch_assoc()["count"];
+    }
+
     static function getOne($id) {
         $stmt = Conn::conn()->prepare("SELECT * FROM `presentation` WHERE `id` = ?");
 
@@ -64,4 +68,12 @@ class Presentation {
         $stmt->execute();
     }
 
+    static function clear() {
+        if($_SESSION["authorizationLevel"] != 4)
+            return;
+
+        $stmt = Conn::conn()->prepare("DELETE FROM `presentation` WHERE isPermanent = 0");
+
+        $stmt->execute();
+    }
 }
