@@ -9,8 +9,10 @@ $presentation = Presentation::getOne($id);
 
 if(!$presentation) {
     ?>
-        <h1>Nie znaleziono prezentacji</h1>
-        <p>Podana prezentacja nie istnieje</p>
+        <div class="details">
+            <h1>Nie znaleziono prezentacji</h1>
+            <p>Podana prezentacja nie istnieje</p>
+        </div>
     <?php
     footerComponent();
     exit();
@@ -36,9 +38,9 @@ if(!isset($_POST["refresh"]) && isset($_POST["songs"])) {
 }
 
 ?>
-<form method="post">
+<form method="post"  class="details basicForm">
     <h1>Edytuj #<?php echo $presentation["id"] ?>: <?php echo $presentation["title"] ?></h1>
-    <input type="text" name="title" value="<?php echo $_POST["title"] ?? $presentation["title"] ?>" required placeholder="Tytuł...">
+    <input type="text" autocomplete="off" name="title" value="<?php echo $_POST["title"] ?? $presentation["title"] ?>" required placeholder="Tytuł...">
     <!--TODO: link do instrukcji, rozdział edycja prezentacji-->
     <a href="">Pomoc</a>
     <input type="submit" value="Odśwież listę prezentacji" name="refresh">
@@ -48,10 +50,12 @@ if(!isset($_POST["refresh"]) && isset($_POST["songs"])) {
     <button id="addSongButton">Dodaj kolejną pieśń</button>
 
     <div id="songSelection">
-        <input type="text" id="search" placeholder="Szukaj...">
+        <input type="text" autocomplete="off" id="search" placeholder="Szukaj...">
     </div>
 
-    <input type="checkbox" name="isPermanent" <?php echo isset($_GET["isPermanent"]) || $presentation["isPermanent"] ? "checked" : "" ?>> Stała prezentacja
+    <div class="stack">
+        <input type="checkbox" name="isPermanent" <?php echo isset($_GET["isPermanent"]) ? "checked" : "" ?>> Stała prezentacja
+    </div>
 
     <input type="submit">
 </form>

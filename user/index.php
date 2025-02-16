@@ -7,6 +7,10 @@ $user = User::getOne($id);
 
 headerComponent($user["displayName"] ?? "Nie znaleziono użytkownika");
 
+?>
+    <div class="details">
+<?php
+
 if(!$user) {
 ?>
     <h1>Nie znaleziono użytkownika</h1>
@@ -21,6 +25,9 @@ else {
     <p>Poziom uprawnień: <?php echo $user["authorizationLevel"] ?></p>
 <?php
 }
+?>
+    </div>
+<?php
 
 footerComponent();
 ?>

@@ -21,10 +21,11 @@ if($_SESSION["authorizationLevel"] < 4) {
     exit();
 }
 ?>
+    <div class="details">
     <h1>Panel administracji</h1>
-    <div>
-        <a href="<?php echo SERVER_ROOT . "/user/admin.php/?panel=users" ?>">Użytkownicy</a>
-        <a href="<?php echo SERVER_ROOT . "/user/admin.php/?panel=clearPresentations" ?>">Oczyść prezentacje</a>
+    <div class="stack">
+        <a class="highlight" href="<?php echo SERVER_ROOT . "/user/admin.php/?panel=users" ?>">Użytkownicy</a>
+        <a class="highlight" href="<?php echo SERVER_ROOT . "/user/admin.php/?panel=clearPresentations" ?>">Oczyść prezentacje</a>
     </div>
 <?php
 switch($_GET["panel"] ?? ""){
@@ -85,6 +86,10 @@ switch($_GET["panel"] ?? ""){
         <?php
         break;
 }
+
+?>
+    </div>
+<?php
 
 footerComponent();
 ?>

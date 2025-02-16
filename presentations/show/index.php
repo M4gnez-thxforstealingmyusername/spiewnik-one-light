@@ -2,6 +2,8 @@
     require_once "../../config.php";
 ?>
 
+<link rel="stylesheet" href="<?php echo SERVER_ROOT ?>/show.css">
+
 <pre id="display"></pre>
 
 <script>

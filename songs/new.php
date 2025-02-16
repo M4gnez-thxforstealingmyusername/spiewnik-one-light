@@ -36,15 +36,17 @@ if(isset($_POST["title"])) {
 }
 
 ?>
-    <form method="post">
-        <input type="text" name="title" required placeholder="Tytuł...">
+    <form method="post" class="details basicForm">
+        <input type="text" autocomplete="off" name="title" required placeholder="Tytuł...">
         <!--TODO: link do instrukcji, rozdział dodawanie pieśni-->
         <a href="">Pomoc</a>
         <div id="verses">
             <div class="verse">
-                <input type="text" name="verseName[]" placeholder="Nazwa zwrotki..." required>
-                <textarea name="text[]" placeholder="Tekst..." required></textarea>
-                <textarea name="chords[]" placeholder="Akordy..."></textarea>
+                <input type="text" autocomplete="off" name="verseName[]" placeholder="Nazwa zwrotki..." required>
+                <div class="verseContainer">
+                    <textarea name="text[]" placeholder="Tekst..." required rows="8" cols="32"></textarea>
+                    <textarea name="chords[]" placeholder="Akordy..." rows="8" cols="32"></textarea>
+                </div>
             </div>
         </div>
         <button id="addVerse">Dodaj zwrotkę</button>
@@ -70,16 +72,25 @@ footerComponent();
 
         const text = document.createElement("textarea");
         text.name = "text[]";
+        text.rows = "8";
+        text.cols = "32";
         text.placeholder = "Tekst...";
         text.toggleAttribute("required");
 
         const chord = document.createElement("textarea");
         chord.name = "chords[]";
+        chord.rows = "8";
+        chord.cols = "32";
         chord.placeholder = "Akordy...";
 
+        const verseContainer = document.createElement("div");
+        verseContainer.classList = "verseContainer";
+
+        verseContainer.appendChild(text);
+        verseContainer.appendChild(chord);
+
         verse.appendChild(verseName);
-        verse.appendChild(text);
-        verse.appendChild(chord);
+        verse.appendChild(verseContainer);
 
         verses.appendChild(verse);
 

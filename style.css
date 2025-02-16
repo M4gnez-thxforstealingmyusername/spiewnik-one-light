@@ -1,0 +1,220 @@
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--font);
+    font-size: large;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+nav {
+    padding: 15px;
+    display: flex;
+    background-color: var(--primary);
+    border-radius: 15px;
+}
+
+.stack {
+    display: flex;
+}
+
+.navElement {
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 1.5em;
+    font-weight: bold;
+    background-color: var(--secondary);
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+a {
+    color: var(--font);
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+a:active {
+    color: var(--font);
+}
+
+a.highlight {
+    display: block;
+    background-color: var(--secondary);
+    padding: 15px;
+    border-radius: 15px;
+    margin: 10px;
+    width: fit-content;
+}
+
+button, input[type="submit"] {
+    border: none;
+    border-radius: 15px;
+    padding: 10px;
+    color: var(--font);
+    background-color: var(--secondary);
+    max-width: 20%;
+    margin: 5px;
+}
+
+input[type="checkbox"] {
+    margin-left: 20px;
+}
+
+input, select {
+    margin: 5px;
+    border: none;
+    background-color: var(--background);
+    color: var(--font);
+    padding: 10px;
+    border-radius: 15px;
+    max-width: 20%;
+}
+
+select {
+    max-width: none;
+    width: 200px;
+}
+
+::placeholder {
+    color: var(--font);
+}
+
+input:focus {
+    outline: none;
+}
+
+input[name="title"] {
+    font-size: larger;
+}
+
+footer {
+    padding: 15px;
+    border-radius: 15px;
+    clear: both;
+    display: flex;
+    background-color: var(--primary);
+    position: static;
+    bottom: 10px;
+}
+
+.footerElement {
+    width: 33.3%;
+}
+
+li {
+    font-size: larger;
+    padding: 5px;
+}
+
+.panel {
+    background-color: var(--primary);
+    padding: 15px;
+    border-radius: 15px;
+    margin: 20px;
+    width: 45%;
+    height: fit-content;
+}
+
+.panels {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.details {
+    margin: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: var(--primary);
+}
+
+.basicComponent {
+    background-color: var(--secondary);
+    border-radius: 15px;
+    padding: 15px;
+    margin: 10px;
+    width: 280px;
+}
+
+.presentationComponent .songPreview {
+    pointer-events: none;
+    display: none;
+}
+.presentationComponent:hover .songPreview {
+    display: block;
+}
+.searchList {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.verse {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.verse * {
+    margin: 10px;
+}
+
+.verses {
+    display: flex;
+    flex-direction: column;
+}
+
+textarea {
+    border: none;
+    background-color: var(--background);
+    color: var(--font);
+    padding: 10px;
+    border-radius: 15px;
+    resize: none;
+}
+
+.basicForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.songGrid {
+    display: flex;
+}
+
+.songColumn {
+    width: 400px;
+}
+
+.userForm{
+    padding-left: 15%;
+    justify-content: center;
+}
+
+.agreement {
+    font-size: .8em;
+    max-width: 40%;
+}
+
+.agreement a {
+    color: var(--emphasis);
+}
+
+#songSelection {
+    display: none;
+
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+#songSelection p {
+    background-color: var(--secondary);
+    max-width: 300px;
+    padding: 15px;
+    border-radius: 15px;
+}

@@ -7,11 +7,21 @@ $song = Song::getOne($id);
 
 headerComponent("Usuń " . $song["title"] ?? "...");
 
+if(!isset($_SESSION["id"])) {
+    accessDeniedComponent("nie zalogowano");
+    footerComponent();
+    exit();
+}
+
 if($_SESSION["authorizationLevel"] < 3) {
     accessDeniedComponent("poziom uprawnień za niski");
     footerComponent();
     exit();
 }
+
+?>
+    <div class="details">
+<?php
 
 if(!$song) {
     ?>
@@ -36,6 +46,7 @@ if(isset($_POST["confirm"])) {
     <input type="submit" value="Usuń" name="confirm">
 </form>
 
+</div>
 <?php
 
 footerComponent();

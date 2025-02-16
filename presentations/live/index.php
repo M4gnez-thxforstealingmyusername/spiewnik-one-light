@@ -6,7 +6,7 @@ headerComponent("Kreator prezentacji na żywo");
 $order = 0;
 
 ?>
-<form method="post">
+<form method="post"  class="details basicForm">
     <!--TODO: link do instrukcji, rozdział dodawanie prezentacji-->
     <a href="">Pomoc</a>
     <input type="submit" value="Odśwież listę prezentacji" name="refresh">
@@ -16,7 +16,7 @@ $order = 0;
     <button id="addSongButton">Dodaj kolejną pieśń</button>
 
     <div id="songSelection">
-        <input type="text" id="search" placeholder="Szukaj...">
+        <input type="text" autocomplete="off" id="search" placeholder="Szukaj...">
     </div>
 
     <button onclick="openPresentation(event)">Uruchom</button>

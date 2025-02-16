@@ -7,6 +7,10 @@ $presentation = Presentation::getOne($id);
 
 headerComponent($presentation["title"] ?? "Nie znaleziono prezentacji");
 
+?>
+    <div class="details">
+<?php
+
 if(!$presentation) {
 ?>
     <h1>Nie znaleziono prezentacji</h1>
@@ -30,9 +34,13 @@ else {
         ?>
     </ol>
 
-    <a href="<?php echo SERVER_ROOT ?>/presentations/edit.php?id=<?php echo $presentation["id"] ?>">Edytuj</a>
-    <a href="<?php echo SERVER_ROOT ?>/presentations/delete.php?id=<?php echo $presentation["id"] ?>">Usuń</a>
-    <a href="" onclick="openPresentation(event)">Uruchom</a>
+    <div class="stack">
+        <a class="highlight" href="<?php echo SERVER_ROOT ?>/presentations/edit.php?id=<?php echo $presentation["id"] ?>">Edytuj</a>
+        <a class="highlight" href="<?php echo SERVER_ROOT ?>/presentations/delete.php?id=<?php echo $presentation["id"] ?>">Usuń</a>
+        <a class="highlight" href="" onclick="openPresentation(event)">Uruchom</a>
+    </div>
+
+    </div>
 <?php
 }
 

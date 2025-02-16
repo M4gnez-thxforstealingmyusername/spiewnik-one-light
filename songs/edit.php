@@ -51,8 +51,8 @@ if(isset($_POST["title"])) {
 }
 
 ?>
-    <form method="post">
-        <input type="text" name="title" required placeholder="Tytuł..." value="<?php echo $song["title"] ?>">
+    <form method="post" class="details basicForm">
+        <input type="text" autocomplete="off" name="title" required placeholder="Tytuł..." value="<?php echo $song["title"] ?>">
         <!--TODO: link do instrukcji, rozdział dodawanie pieśni-->
         <a href="">Pomoc</a>
         <div id="verses">
@@ -125,17 +125,26 @@ footerComponent();
         const text = document.createElement("textarea");
         text.name = "text[]";
         text.placeholder = "Tekst...";
+        text.rows = "8";
+        text.cols = "32";
         text.toggleAttribute("required");
         text.textContent = newText;
 
         const chord = document.createElement("textarea");
         chord.name = "chords[]";
         chord.placeholder = "Akordy...";
+        chord.rows = "8";
+        chord.cols = "32";
         chord.textContent = newChords;
 
+        const verseContainer = document.createElement("div");
+        verseContainer.classList = "verseContainer";
+
+        verseContainer.appendChild(text);
+        verseContainer.appendChild(chord);
+
         verse.appendChild(verseName);
-        verse.appendChild(text);
-        verse.appendChild(chord);
+        verse.appendChild(verseContainer);
 
         verses.appendChild(verse);
 

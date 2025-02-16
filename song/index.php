@@ -7,6 +7,10 @@ $song = Song::getOne($id);
 
 headerComponent($song["title"] ?? "Nie znaleziono tekstu");
 
+?>
+    <div class="details">
+<?php
+
 if(!$song) {
 ?>
     <h1>Nie znaleziono tekstu</h1>
@@ -24,8 +28,12 @@ else {
         <pre class="songColumn"><?php echo $song["chord"] ?></pre>
     </div>
 
-    <a href="<?php echo SERVER_ROOT ?>/songs/edit.php?id=<?php echo $song["id"] ?>">Edytuj</a>
-    <a href="<?php echo SERVER_ROOT ?>/songs/delete.php?id=<?php echo $song["id"] ?>">Usuń</a>
+    <div class="stack">
+        <a class="highlight" href="<?php echo SERVER_ROOT ?>/songs/edit.php?id=<?php echo $song["id"] ?>">Edytuj</a>
+        <a class="highlight" href="<?php echo SERVER_ROOT ?>/songs/delete.php?id=<?php echo $song["id"] ?>">Usuń</a>
+    </div>
+
+    </div>
 <?php
 }
 

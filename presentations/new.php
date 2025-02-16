@@ -23,8 +23,8 @@ if(!isset($_POST["refresh"]) && isset($_POST["songs"])) {
 }
 
 ?>
-<form method="post">
-    <input type="text" name="title" value="<?php echo $_POST["title"] ?? "" ?>" required placeholder="Tytuł...">
+<form method="post" class="details basicForm">
+    <input type="text" autocomplete="off" name="title" value="<?php echo $_POST["title"] ?? "" ?>" required placeholder="Tytuł...">
     <!--TODO: link do instrukcji, rozdział dodawanie prezentacji-->
     <a href="">Pomoc</a>
     <input type="submit" value="Odśwież listę prezentacji" name="refresh">
@@ -33,11 +33,13 @@ if(!isset($_POST["refresh"]) && isset($_POST["songs"])) {
 
     <button id="addSongButton">Dodaj kolejną pieśń</button>
 
+    <input type="text" autocomplete="off" id="search" placeholder="Szukaj...">
     <div id="songSelection">
-        <input type="text" id="search" placeholder="Szukaj...">
     </div>
 
-    <input type="checkbox" name="isPermanent" <?php echo isset($_GET["isPermanent"]) ? "checked" : "" ?>> Stała prezentacja
+    <div class="stack">
+        <input type="checkbox" name="isPermanent" <?php echo isset($_GET["isPermanent"]) ? "checked" : "" ?>> Stała prezentacja
+    </div>
 
     <input type="submit">
 </form>
