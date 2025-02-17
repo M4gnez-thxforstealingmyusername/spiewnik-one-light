@@ -53,8 +53,7 @@ if(isset($_POST["title"])) {
 ?>
     <form method="post" class="details basicForm">
         <input type="text" autocomplete="off" name="title" required placeholder="Tytuł..." value="<?php echo $song["title"] ?>">
-        <!--TODO: link do instrukcji, rozdział dodawanie pieśni-->
-        <a href="">Pomoc</a>
+        <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#edycja-prezentacji">Pomoc</a>
         <div id="verses">
             <div class="verse">
 

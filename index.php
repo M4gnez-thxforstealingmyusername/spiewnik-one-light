@@ -1,7 +1,7 @@
 <?php
 require "config.php";
 
-headerComponent("Śpiewnik");
+headerComponent("spiewnik");
 ?>
 <div class="panels">
 

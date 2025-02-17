@@ -217,4 +217,21 @@ textarea {
     max-width: 300px;
     padding: 15px;
     border-radius: 15px;
+    cursor: pointer;
+}
+
+td {
+    width: 20%;
+}
+
+td:first-child {
+    width: 10%;
+}
+
+td:last-child {
+    width: 30%;
+}
+
+td input[type="submit"] {
+    max-width: fit-content;
 }

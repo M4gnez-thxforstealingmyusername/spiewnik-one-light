@@ -26,6 +26,7 @@ if($_SESSION["authorizationLevel"] < 4) {
     <div class="stack">
         <a class="highlight" href="<?php echo SERVER_ROOT . "/user/admin.php/?panel=users" ?>">Użytkownicy</a>
         <a class="highlight" href="<?php echo SERVER_ROOT . "/user/admin.php/?panel=clearPresentations" ?>">Oczyść prezentacje</a>
+        <a class="highlight" href="<?php echo SERVER_ROOT . "/user/admin.php/?panel=quickAdd" ?>">Szybkie dodawanie</a>
     </div>
 <?php
 switch($_GET["panel"] ?? ""){
@@ -51,14 +52,18 @@ switch($_GET["panel"] ?? ""){
                             <?php echo $user["displayName"] ?>
                         </td>
                         <td>
-                            <?php echo $cities[$user["cityId"]]["cityName"] ?>
+                            <?php echo $cities[$user["cityId"] - 1]["cityName"] ?>
                         </td>
                         <td>
                             <form action="<?php echo SERVER_ROOT ?>/user/adminTools/setAuthorization.php" method="post">
                                 <?php
-                                if($user["authorizationLevel"] == 4)
-                                    echo 4;
-                                else {?>
+                                if($user["authorizationLevel"] == 4) {
+                                ?>
+                                    <select>
+                                        <option>4</option>
+                                    </select>
+                                <?php
+                                } else {?>
                                     <select name="authorizationLevel">
                                         <option <?php echo $user["authorizationLevel"] == 0 ? "selected" : "" ?>>0</option>
                                         <option <?php echo $user["authorizationLevel"] == 1 ? "selected" : "" ?>>1</option>
@@ -85,6 +90,14 @@ switch($_GET["panel"] ?? ""){
             </form>
         <?php
         break;
+    case "quickAdd":
+        ?>
+            <form action="<?php echo SERVER_ROOT ?>/user/adminTools/quickAdd.php" class="basicForm" method="post">
+                <input type="text" name="title" placeholder="Tytuł..." required>
+                <textarea name="text" cols="32" rows="32" required placeholder="Tekst..."></textarea>
+                <input type="submit">
+            </form>
+        <?php
 }
 
 ?>

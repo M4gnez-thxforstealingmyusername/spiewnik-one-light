@@ -7,8 +7,7 @@ $order = 0;
 
 ?>
 <form method="post"  class="details basicForm">
-    <!--TODO: link do instrukcji, rozdział dodawanie prezentacji-->
-    <a href="">Pomoc</a>
+    <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#Prezentacja-na-żywo">Pomoc</a>
     <input type="submit" value="Odśwież listę prezentacji" name="refresh">
 
     <ol id="songList"></ol>

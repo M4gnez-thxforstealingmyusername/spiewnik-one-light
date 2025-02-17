@@ -38,8 +38,7 @@ if(isset($_POST["title"])) {
 ?>
     <form method="post" class="details basicForm">
         <input type="text" autocomplete="off" name="title" required placeholder="Tytuł...">
-        <!--TODO: link do instrukcji, rozdział dodawanie pieśni-->
-        <a href="">Pomoc</a>
+        <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#Dodawanie-prezentacji">Pomoc</a>
         <div id="verses">
             <div class="verse">
                 <input type="text" autocomplete="off" name="verseName[]" placeholder="Nazwa zwrotki..." required>

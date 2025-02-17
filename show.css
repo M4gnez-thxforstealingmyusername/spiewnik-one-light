@@ -5,6 +5,7 @@ body, pre {
     margin: 0px;
     padding: 0px;
 }
+
 pre {
     background-color: black;
     color: white;
@@ -12,4 +13,7 @@ pre {
     font-size: 5vw;
     text-align: center;
     align-content: center;
+
+    cursor: none;
+    user-select: none;
 }

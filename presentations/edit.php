@@ -41,8 +41,7 @@ if(!isset($_POST["refresh"]) && isset($_POST["songs"])) {
 <form method="post"  class="details basicForm">
     <h1>Edytuj #<?php echo $presentation["id"] ?>: <?php echo $presentation["title"] ?></h1>
     <input type="text" autocomplete="off" name="title" value="<?php echo $_POST["title"] ?? $presentation["title"] ?>" required placeholder="Tytuł...">
-    <!--TODO: link do instrukcji, rozdział edycja prezentacji-->
-    <a href="">Pomoc</a>
+    <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#edycja-prezentacji">Pomoc</a>
     <input type="submit" value="Odśwież listę prezentacji" name="refresh">
 
     <ol id="songList"></ol>

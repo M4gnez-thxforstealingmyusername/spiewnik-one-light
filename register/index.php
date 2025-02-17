@@ -30,10 +30,9 @@ if(isset($_POST["login"]) && isset($_POST["displayName"]) && isset($_POST["passw
                 }
             ?>
         </select>
-        <!--TODO:Regulamin i oświadczenie o plikach cookie-->
-        <a href="">Pomoc</a>
+        <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#Tworzenie-konta">Pomoc</a>
         <div class="agreement">
-            <input type="checkbox" required> Oświadczam, że przeczytałem(am) i akceptuję <a href="">Regulamin</a> oraz <a href="">Oświadczenie o plikach cookie</a>.
+            <input type="checkbox" required> Oświadczam, że przeczytałem(am) i akceptuję <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/regulamin.md">Regulamin</a> oraz <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/oświadczenieOPlikachCookie.md">Oświadczenie o plikach cookie</a>.
         </div>
 
         <input type="submit">

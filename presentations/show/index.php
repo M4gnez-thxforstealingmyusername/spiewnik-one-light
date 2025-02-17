@@ -2,10 +2,10 @@
     require_once "../../config.php";
 ?>
 
+<!--TODO: popraw css-->
 <link rel="stylesheet" href="<?php echo SERVER_ROOT ?>/show.css">
 
 <pre id="display"></pre>
-
 <script>
     var songs = <?php echo json_encode(Song::getTextList($_GET["songs"] ?? "")) ?>
 
