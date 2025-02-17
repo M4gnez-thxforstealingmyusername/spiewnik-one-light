@@ -57,6 +57,7 @@ Prezentacje w trybie "live" możesz edytować i otwierać w tym samym oknie, np.
 Żeby móc dodać pieśń, musisz być zalogowany i posiadać poziom uprawnień 2 lub wyższy.
 Aby dodać pieśń, wpisz tytuł.
 Następnie podaj nazwę zwrotki i uzupełnij jej tekst, możesz też dodać akordy, ale nie jest to obowiązkowe.
+Tekst nie powinien wystawać poza wyznaczony obszar, wpłynie to na widoczność tekstu na prezentacji, jeżeli tekst nie mieści się w wyznaczonym obszarze, rozważ rozdzielenie tekstu na dwa slajdy.
 Możesz dodać następną zwrotkę, klikając "Dodaj zwrotkę".
 Po przesłaniu formularza, pieśń zostanie dodana.
 # Edycja pieśni
