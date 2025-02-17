@@ -93,7 +93,7 @@ switch($_GET["panel"] ?? ""){
     case "quickAdd":
         ?>
             <form action="<?php echo SERVER_ROOT ?>/user/adminTools/quickAdd.php" class="basicForm" method="post">
-                <input type="text" name="title" placeholder="Tytuł..." required>
+                <input type="text" name="title" placeholder="Tytuł..." required maxlength="50">
                 <textarea name="text" cols="32" rows="32" required placeholder="Tekst..."></textarea>
                 <input type="submit">
             </form>

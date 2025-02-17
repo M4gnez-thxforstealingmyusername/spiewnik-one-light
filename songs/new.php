@@ -37,7 +37,7 @@ if(isset($_POST["title"])) {
 
 ?>
     <form method="post" class="details basicForm">
-        <input type="text" autocomplete="off" name="title" required placeholder="Tytuł...">
+        <input type="text" autocomplete="off" name="title" required placeholder="Tytuł..." maxlength="50">
         <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#Dodawanie-prezentacji">Pomoc</a>
         <div id="verses">
             <div class="verse">

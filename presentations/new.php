@@ -24,7 +24,7 @@ if(!isset($_POST["refresh"]) && isset($_POST["songs"])) {
 
 ?>
 <form method="post" class="details basicForm">
-    <input type="text" autocomplete="off" name="title" value="<?php echo $_POST["title"] ?? "Nowa " . date("d.m.Y") ?>" required placeholder="Tytuł...">
+    <input type="text" autocomplete="off" name="title" value="<?php echo $_POST["title"] ?? "Nowa " . date("d.m.Y") ?>" required placeholder="Tytuł..." maxlength="50">
     <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#dodawanie-prezentacji">Pomoc</a>
     <input type="submit" value="Odśwież listę prezentacji" name="refresh">
 
