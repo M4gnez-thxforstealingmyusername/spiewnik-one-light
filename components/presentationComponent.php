@@ -12,7 +12,7 @@ function presentationComponent($id, $title, $userId, $songs, $uploadDate) {
                         <?php
                         foreach(Song::getList($songs) as $song) {
                             ?>
-                                <li><?php echo $song["title"] ?> (<?php echo $song["id"] ?>)</li>
+                                <li><?php echo $song["title"] ?></li>
                             <?php
                         }
                         ?>
