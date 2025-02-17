@@ -23,7 +23,7 @@ if($_SESSION["authorizationLevel"] < 4) {
 ?>
     <div class="details">
     <h1>Panel administracji</h1>
-    <div class="stack">
+    <div class="stack adminStack">
         <a class="highlight" href="<?php echo SERVER_ROOT . "/user/admin.php/?panel=users" ?>">Użytkownicy</a>
         <a class="highlight" href="<?php echo SERVER_ROOT . "/user/admin.php/?panel=clearPresentations" ?>">Oczyść prezentacje</a>
         <a class="highlight" href="<?php echo SERVER_ROOT . "/user/admin.php/?panel=quickAdd" ?>">Szybkie dodawanie</a>

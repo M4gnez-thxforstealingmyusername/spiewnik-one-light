@@ -8,6 +8,7 @@ function headerComponent($title) {
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <link rel="stylesheet" href="<?php echo SERVER_ROOT ?>/theme.css">
             <link rel="stylesheet" href="<?php echo SERVER_ROOT ?>/style.css">
+            <link rel="stylesheet" href="<?php echo SERVER_ROOT ?>/mobile.css">
             <title><?php echo $title ?></title>
         </head>
         <body>

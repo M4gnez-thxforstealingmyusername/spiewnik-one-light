@@ -1,0 +1,78 @@
+@media only screen and (max-width: 1100px) {
+
+    body {
+        padding: 0px;
+    }
+
+    nav {
+        flex-direction: column;
+        margin: none;
+    }
+
+    .navElement {
+        text-align: center;
+    }
+
+    .panels {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .panel {
+        width: unset;
+    }
+
+    footer {
+        flex-direction: column;
+    }
+
+    input, button, .agreement {
+        max-width: 100%;
+        font-size: 100%;
+    }
+
+    .userForm {
+        padding: 15px;
+    }
+
+    input[type="submit"] {
+        width: fit-content;
+        max-width: 100%;
+    }
+
+    .details {
+        justify-content: center;
+    }
+
+    .stack {
+        justify-content: center;
+    }
+
+    .adminStack {
+        flex-direction: column;
+    }
+
+    .adminStack .highlight {
+        width: auto;
+        text-align: center;
+    }
+
+    .songGrid {
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .songColumn {
+        width: auto;
+    }
+
+    table {
+        width: 100%;
+        overflow-x: scroll;
+        display: block;
+    }
+
+    tr {
+        display: inline-block;
+    }
+}
