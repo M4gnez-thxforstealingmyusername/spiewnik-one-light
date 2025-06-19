@@ -2,7 +2,6 @@
     require_once "../../config.php";
 ?>
 
-<!--TODO: popraw css-->
 <link rel="stylesheet" href="<?php echo SERVER_ROOT ?>/show.css">
 
 <pre id="display"></pre>
@@ -12,6 +11,9 @@
     var slides = [];
 
     var currentSlide = 0;
+
+    display.style.backgroundColor = "black";
+    display.style.color = "white";
 
     songs.forEach(song => {
         let text = song.text;
@@ -35,20 +37,26 @@
     });
 
     document.addEventListener("keydown", (e) => {
-        if(e.key == "ArrowRight")
-            nextSlide();
-
-        if(e.key == "ArrowLeft")
-            previousSlide();
-
-        if(e.key == "m")
-            toggleTheme();
-
-        if(e.key == "r")
-            resetSlide();
-
-        if(e.key == "Escape")
-            window.close();
+        switch(e.key) {
+            case "ArrowRight":
+                nextSlide();
+                break;
+            case "ArrowLeft":
+                previousSlide();
+                break;
+            case "m":
+                toggleTheme();
+                break;
+            case "r":
+                resetSlide();
+                break;
+            case "h":
+                hideText();
+                break;
+            case "Escape":
+                window.close();
+                break;
+        }
     });
 
     function changeSlide() {
@@ -81,6 +89,18 @@
             display.style.color = "black";
         } else {
             display.style.backgroundColor = "black";
+            display.style.color = "white";
+        }
+    }
+
+    function hideText() {
+        if(display.style.backgroundColor == "black" && display.style.color === "white") {
+            display.style.color = "black";
+        } else if(display.style.backgroundColor == "black" && display.style.color !== "white") {
+            display.style.color = "white";
+        } else if(display.style.backgroundColor == "white" && display.style.color === "white") {
+            display.style.color = "black";
+        } else if(display.style.backgroundColor == "white" && display.style.color !== "white") {
             display.style.color = "white";
         }
     }
