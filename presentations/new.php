@@ -24,23 +24,31 @@ if(!isset($_POST["refresh"]) && isset($_POST["songs"])) {
 
 ?>
 <form method="post" class="details basicForm">
+    <h1>Tworzenie prezentacji</h1>
     <input type="text" autocomplete="off" name="title" value="<?php echo $_POST["title"] ?? "Nowa " . date("d.m.Y") ?>" required placeholder="Tytuł..." maxlength="50">
+    <div class="spacerHalf"></div>
     <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#dodawanie-prezentacji">Pomoc</a>
-    <input type="submit" value="Odśwież listę prezentacji" name="refresh">
+    <div class="spacerHalf"></div>
+    
+    <h2 class="noMargin">Kolejność pieśni:</h2>
 
     <ol id="songList"></ol>
-
+    
     <button id="addSongButton">Dodaj kolejną pieśń</button>
-
-    <input type="text" autocomplete="off" id="search" placeholder="Szukaj...">
+    <input type="submit" value="Odśwież listę pieśni" name="refresh">
+    <div class="spacerHalf"></div>
     <div id="songSelection">
+        <input type="text" autocomplete="off" id="search" placeholder="Szukaj...">
     </div>
+
+    <div class="spacer"></div>
 
     <div class="stack">
         <input type="checkbox" name="isPermanent" <?php echo isset($_GET["isPermanent"]) ? "checked" : "" ?>> Stała prezentacja
     </div>
 
-    <input type="submit">
+    <input type="submit" value="Zapisz">
+    <button onclick="openPresentation(event)">Uruchom</button>
 </form>
 <?php
 
@@ -88,6 +96,19 @@ footerComponent();
             songListElement.setAttribute("order", order++);
             songList.appendChild(songListElement);
         });
+    }
+
+    function openPresentation(event) {
+        event.preventDefault();
+
+        let songListElements = Array.from(document.querySelectorAll("input[type=hidden]"));
+        let songIds = [];
+
+        songListElements.forEach(element => {
+            songIds.push(element.value);
+        })
+
+        window.open("<?php echo SERVER_ROOT ?>/presentations/show/?songs=" + songIds.join(","), 'blank', 'width=1920,height=1080,fullscreen=yes,toolbar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no');
     }
 
     function moveDown(orderNumber) {

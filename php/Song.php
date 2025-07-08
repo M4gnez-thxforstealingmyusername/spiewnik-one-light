@@ -66,18 +66,18 @@ class Song {
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    static function add($title, $userId, $text, $chord) {
-        $stmt = Conn::conn()->prepare("INSERT INTO `song` values (DEFAULT, ?, ?, ?, ?, DEFAULT)");
+    static function add($title, $userId, $description, $text, $chord) {
+        $stmt = Conn::conn()->prepare("INSERT INTO `song` values (DEFAULT, ?, ?, ?, ?, ?, DEFAULT)");
 
-        $stmt->bind_param("siss", $title, $userId, $text, $chord);
+        $stmt->bind_param("sisss", $title, $userId, $description, $text, $chord);
 
         $stmt->execute();
     }
 
-    static function update($id, $title, $text, $chord) {
-        $stmt = Conn::conn()->prepare("UPDATE `song` set `title` = ?, `text` = ?, `chord` = ? WHERE id = ?");
+    static function update($id, $title, $description, $text, $chord) {
+        $stmt = Conn::conn()->prepare("UPDATE `song` set `title` = ?, `text` = ?, `chord` = ?, `description` = ? WHERE id = ?");
 
-        $stmt->bind_param("sssi", $title, $text, $chord, $id);
+        $stmt->bind_param("ssssi", $title, $text, $chord, $description, $id);
 
         $stmt->execute();
     }

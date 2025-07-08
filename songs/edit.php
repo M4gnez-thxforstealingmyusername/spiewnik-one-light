@@ -45,15 +45,19 @@ if(isset($_POST["title"])) {
         $chords .= $chordVerses[$i] . "\n";
     }
 
-    Song::update($id, $_POST["title"], $text, $chords);
+    Song::update($id, $_POST["title"], $_POST["description"], $text, $chords);
 
     header("Location: " . SERVER_ROOT . "/song/?id=". $id);
 }
 
 ?>
     <form method="post" class="details basicForm">
-        <input type="text" autocomplete="off" name="title" required placeholder="Tytuł..." value="<?php echo $song["title"] ?>" maxlength="50">
+        <h1>Edycja pieśni</h1>
         <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#edycja-prezentacji">Pomoc</a>
+        <input type="text" autocomplete="off" name="title" required placeholder="Tytuł..." value="<?php echo $song["title"] ?>" maxlength="50">
+        <textarea name="description" class="description" placeholder="Opis, linki, etc..."><?php echo $song["description"] ?></textarea>
+        <div class="spacerHalf"></div>
+        <h2>Tekst pieśni:</h2>
         <div id="verses">
             <div class="verse">
 
@@ -61,7 +65,7 @@ if(isset($_POST["title"])) {
         </div>
         <button id="addVerseButton">Dodaj zwrotkę</button>
 
-        <input type="submit">
+        <input type="submit" value="Zapisz">
     </form>
 <?php
 footerComponent();

@@ -35,7 +35,7 @@ if(isset($_POST["login"]) && isset($_POST["displayName"]) && isset($_POST["passw
             <input type="checkbox" required> Oświadczam, że przeczytałem(am) i akceptuję <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/regulamin.md">Regulamin</a> oraz <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/oświadczenieOPlikachCookie.md">Oświadczenie o plikach cookie</a>.
         </div>
 
-        <input type="submit">
+        <input type="submit" value="Utwórz">
     </form>
 <?php
 

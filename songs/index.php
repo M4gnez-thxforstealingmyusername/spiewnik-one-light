@@ -8,6 +8,7 @@ $search = $_GET["search"] ?? "";
 
 ?>
 <div class="details">
+<h1>Lista pieśni</h1>
 <form>
     <input type="search" name="search" placeholder="Szukaj..." autocomplete="off">
     <input type="hidden" name="page" value="1">

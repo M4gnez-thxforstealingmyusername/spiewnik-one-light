@@ -71,7 +71,7 @@ switch($_GET["panel"] ?? ""){
                                         <option <?php echo $user["authorizationLevel"] == 3 ? "selected" : "" ?>>3</option>
                                     </select>
                                     <input type="hidden" name="id" value="<?php echo $user["id"] ?>">
-                                    <input type="submit">
+                                    <input type="submit" value="Zapisz">
                                 <?php } ?>
                             </form>
                         </td>
@@ -95,7 +95,7 @@ switch($_GET["panel"] ?? ""){
             <form action="<?php echo SERVER_ROOT ?>/user/adminTools/quickAdd.php" class="basicForm" method="post">
                 <input type="text" name="title" placeholder="Tytuł..." required maxlength="50">
                 <textarea name="text" cols="32" rows="32" required placeholder="Tekst..."></textarea>
-                <input type="submit">
+                <input type="submit" value="Zapisz">
             </form>
         <?php
 }

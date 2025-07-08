@@ -34,6 +34,7 @@ else {
 ?>
     <h1>#<?php echo $song["id"] ?>: <?php echo $song["title"] ?></h1>
     <p>Dodał(a): <a href="<?php echo SERVER_ROOT ?>/user/?id=<?php echo $song["userId"] ?>"><?php echo User::getName($song["userId"]) ?></a></p>
+    <pre><?php echo $song["description"] ?></pre>
     <p>Data dodania: <?php echo $song["uploadDate"] ?></p>
 
     <div class="songGrid">
@@ -44,11 +45,11 @@ else {
     <div class="stack">
         <a class="highlight" href="<?php echo SERVER_ROOT ?>/songs/edit.php?id=<?php echo $song["id"] ?>">Edytuj</a>
         <a class="highlight" href="<?php echo SERVER_ROOT ?>/songs/delete.php?id=<?php echo $song["id"] ?>">Usuń</a>
+        <a class="highlight" href="<?php echo SERVER_ROOT ?>/presentations/show/?songs=<?php echo $song["id"] ?>">Uruchom jako prezentację</a>
     </div>
 
     </div>
 <?php
 }
-
 footerComponent();
 ?>

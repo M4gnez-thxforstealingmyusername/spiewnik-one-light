@@ -6,17 +6,23 @@ headerComponent("Kreator prezentacji na żywo");
 $order = 0;
 
 ?>
-<form method="post"  class="details basicForm">
-    <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#Prezentacja-na-żywo">Pomoc</a>
-    <input type="submit" value="Odśwież listę prezentacji" name="refresh">
+<form method="post" class="details basicForm">
+    <h1>Prezentacja na żywo</h1>
+    <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#dodawanie-prezentacji">Pomoc</a>
+    <div class="spacerHalf"></div>
+    
+    <h2 class="noMargin">Kolejność pieśni:</h2>
 
     <ol id="songList"></ol>
-
+    
     <button id="addSongButton">Dodaj kolejną pieśń</button>
-
+    <input type="submit" value="Odśwież listę pieśni" name="refresh">
+    <div class="spacerHalf"></div>
     <div id="songSelection">
         <input type="text" autocomplete="off" id="search" placeholder="Szukaj...">
     </div>
+
+    <div class="spacer"></div>
 
     <button onclick="openPresentation(event)">Uruchom</button>
 </form>

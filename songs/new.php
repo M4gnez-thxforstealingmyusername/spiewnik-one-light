@@ -30,15 +30,19 @@ if(isset($_POST["title"])) {
         $chords .= $chordVerses[$i] . "\n";
     }
 
-    Song::add($_POST["title"], $_SESSION["id"], $text, $chords);
+    Song::add($_POST["title"], $_SESSION["id"], $_POST["description"], $text, $chords);
 
     header("Location: " . SERVER_ROOT . "/song/?id=". Song::getTop()[0]["id"]);
 }
 
 ?>
     <form method="post" class="details basicForm">
-        <input type="text" autocomplete="off" name="title" required placeholder="Tytuł..." maxlength="50">
+        <h1>Tworzenie pieśni</h1>
         <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#Dodawanie-prezentacji">Pomoc</a>
+        <input type="text" autocomplete="off" name="title" required placeholder="Tytuł..." maxlength="50">
+        <textarea name="description" class="description" placeholder="Opis, linki, etc..."></textarea>
+        <div class="spacerHalf"></div>
+        <h2>Tekst pieśni:</h2>
         <div id="verses">
             <div class="verse">
                 <input type="text" autocomplete="off" name="verseName[]" placeholder="Nazwa zwrotki..." required>
@@ -50,7 +54,7 @@ if(isset($_POST["title"])) {
         </div>
         <button id="addVerse">Dodaj zwrotkę</button>
 
-        <input type="submit">
+        <input type="submit" value="Zapisz">
     </form>
 <?php
 footerComponent();

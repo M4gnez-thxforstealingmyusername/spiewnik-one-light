@@ -51,7 +51,7 @@ a.highlight {
     width: fit-content;
 }
 
-button, input[type="submit"] {
+button, input[type="submit"], .emphasize {
     border: none;
     border-radius: 15px;
     padding: 10px;
@@ -59,6 +59,10 @@ button, input[type="submit"] {
     background-color: var(--secondary);
     max-width: 20%;
     margin: 5px;
+}
+
+.emphasize {
+    font-weight: bolder;
 }
 
 input[type="checkbox"] {
@@ -205,6 +209,20 @@ textarea {
     color: var(--emphasis);
 }
 
+.spacer {
+    height: 40px;
+}
+
+.spacerHalf {
+    height: 20px;
+}
+
+.description {
+    margin-left: 10px;
+    width: 500px;
+    height: 100px;
+}
+
 #songSelection {
     display: none;
 
@@ -234,4 +252,8 @@ td:last-child {
 
 td input[type="submit"] {
     max-width: fit-content;
+}
+
+.noMargin {
+    margin: 0px;
 }

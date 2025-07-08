@@ -16,10 +16,11 @@ if(isset($_POST["login"]) && isset($_POST["password"])) {
 
 ?>
     <form method="post" class="details basicForm userForm">
+        <h1>Logowanie</h1>
         <?php echo isset($result) && $result == false ? "<p>Nie udało się zalogować, spróbuj ponownie</p>" : "" ?>
         <input type="text" autocomplete="off" name="login" placeholder="Login..." required value="<?php echo $_POST["login"] ?? "" ?>">
         <input type="password" name="password" placeholder="Hasło..." require>
-        <input type="submit">
+        <input type="submit" value="Zaloguj">
     </form>
 <?php
 

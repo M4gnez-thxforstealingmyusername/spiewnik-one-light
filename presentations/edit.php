@@ -39,7 +39,7 @@ if(!isset($_POST["refresh"]) && isset($_POST["songs"])) {
 
 ?>
 <form method="post"  class="details basicForm">
-    <h1>Edytuj #<?php echo $presentation["id"] ?>: <?php echo $presentation["title"] ?></h1>
+    <h1>Edycja prezentacji</h1>
     <input type="text" autocomplete="off" name="title" value="<?php echo $_POST["title"] ?? $presentation["title"] ?>" required placeholder="Tytuł..." maxlength="50">
     <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#edycja-prezentacji">Pomoc</a>
     <input type="submit" value="Odśwież listę prezentacji" name="refresh">
@@ -56,7 +56,7 @@ if(!isset($_POST["refresh"]) && isset($_POST["songs"])) {
         <input type="checkbox" name="isPermanent" <?php echo isset($_GET["isPermanent"]) ? "checked" : "" ?>> Stała prezentacja
     </div>
 
-    <input type="submit">
+    <input type="submit" value="Zapisz">
 </form>
 <?php
 
