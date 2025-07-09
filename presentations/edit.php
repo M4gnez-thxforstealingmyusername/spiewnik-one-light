@@ -40,17 +40,23 @@ if(!isset($_POST["refresh"]) && isset($_POST["songs"])) {
 ?>
 <form method="post"  class="details basicForm">
     <h1>Edycja prezentacji</h1>
-    <input type="text" autocomplete="off" name="title" value="<?php echo $_POST["title"] ?? $presentation["title"] ?>" required placeholder="Tytuł..." maxlength="50">
     <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#edycja-prezentacji">Pomoc</a>
-    <input type="submit" value="Odśwież listę prezentacji" name="refresh">
-
+    <div class="spacerHalf"></div>
+    <input type="text" autocomplete="off" name="title" value="<?php echo $_POST["title"] ?? $presentation["title"] ?>" required placeholder="Tytuł..." maxlength="50">
+    <div class="spacerHalf"></div>
+    
     <ol id="songList"></ol>
-
+    
+    <input type="submit" value="Odśwież listę prezentacji" name="refresh">
     <button id="addSongButton">Dodaj kolejną pieśń</button>
+    <div class="spacerHalf"></div>
 
-    <div id="songSelection">
+    <div id="songSelectionHolder">
         <input type="text" autocomplete="off" id="search" placeholder="Szukaj...">
+        <div id="songSelection"></div>
     </div>
+
+    <div class="spacer"></div>
 
     <div class="stack">
         <input type="checkbox" name="isPermanent" <?php echo isset($_GET["isPermanent"]) ? "checked" : "" ?>> Stała prezentacja
@@ -86,7 +92,7 @@ footerComponent();
 
         refreshList(songs);
 
-        songSelection.style.display = "block";
+        songSelectionHolder.style.display = "block";
     });
 
     search.addEventListener("input", (e) => {
@@ -221,6 +227,6 @@ footerComponent();
 
                 songList.appendChild(li);
 
-                songSelection.style.display = "none";
+                songSelectionHolder.style.display = "none";
     }
 </script>

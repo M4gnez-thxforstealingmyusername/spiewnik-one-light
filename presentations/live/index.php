@@ -18,8 +18,10 @@ $order = 0;
     <button id="addSongButton">Dodaj kolejną pieśń</button>
     <input type="submit" value="Odśwież listę pieśni" name="refresh">
     <div class="spacerHalf"></div>
-    <div id="songSelection">
+
+    <div id="songSelectionHolder">
         <input type="text" autocomplete="off" id="search" placeholder="Szukaj...">
+        <div id="songSelection"></div>
     </div>
 
     <div class="spacer"></div>
@@ -67,7 +69,7 @@ footerComponent();
 
         refreshList(songs);
 
-        songSelection.style.display = "block";
+        songSelectionHolder.style.display = "block";
     });
 
     search.addEventListener("input", (e) => {
@@ -202,6 +204,6 @@ footerComponent();
 
                 songList.appendChild(li);
 
-                songSelection.style.display = "none";
+                songSelectionHolder.style.display = "none";
     }
 </script>

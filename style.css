@@ -224,10 +224,12 @@ textarea {
 }
 
 #songSelection {
-    display: none;
-
     max-height: 500px;
     overflow-y: scroll;
+}
+
+#songSelectionHolder {
+    display: none;
 }
 
 #songSelection p {

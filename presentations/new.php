@@ -25,20 +25,22 @@ if(!isset($_POST["refresh"]) && isset($_POST["songs"])) {
 ?>
 <form method="post" class="details basicForm">
     <h1>Tworzenie prezentacji</h1>
-    <input type="text" autocomplete="off" name="title" value="<?php echo $_POST["title"] ?? "Nowa " . date("d.m.Y") ?>" required placeholder="Tytuł..." maxlength="50">
-    <div class="spacerHalf"></div>
     <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#dodawanie-prezentacji">Pomoc</a>
     <div class="spacerHalf"></div>
-    
+    <input type="text" autocomplete="off" name="title" value="<?php echo $_POST["title"] ?? "Nowa " . date("d.m.Y") ?>" required placeholder="Tytuł..." maxlength="50">
+    <div class="spacerHalf"></div>
+
     <h2 class="noMargin">Kolejność pieśni:</h2>
 
     <ol id="songList"></ol>
-    
+
     <button id="addSongButton">Dodaj kolejną pieśń</button>
     <input type="submit" value="Odśwież listę pieśni" name="refresh">
     <div class="spacerHalf"></div>
-    <div id="songSelection">
+
+    <div id="songSelectionHolder">
         <input type="text" autocomplete="off" id="search" placeholder="Szukaj...">
+        <div id="songSelection"></div>
     </div>
 
     <div class="spacer"></div>
@@ -78,7 +80,7 @@ footerComponent();
 
         refreshList(songs);
 
-        songSelection.style.display = "block";
+        songSelectionHolder.style.display = "block";
     });
 
     search.addEventListener("input", (e) => {
@@ -226,6 +228,6 @@ footerComponent();
 
                 songList.appendChild(li);
 
-                songSelection.style.display = "none";
+                songSelectionHolder.style.display = "none";
     }
 </script>
