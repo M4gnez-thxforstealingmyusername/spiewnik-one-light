@@ -53,7 +53,7 @@ if(isset($_POST["title"])) {
 ?>
     <form method="post" class="details basicForm">
         <h1>Edycja pieśni</h1>
-        <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#edycja-prezentacji">Pomoc</a>
+        <a target="blank" href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#edycja-prezentacji">Pomoc</a>
         <input type="text" autocomplete="off" name="title" required placeholder="Tytuł..." value="<?php echo $song["title"] ?>" maxlength="50">
         <textarea name="description" class="description" placeholder="Opis, linki, etc..."><?php echo $song["description"] ?></textarea>
         <div class="spacerHalf"></div>

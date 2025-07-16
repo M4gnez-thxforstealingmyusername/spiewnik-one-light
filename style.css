@@ -223,6 +223,28 @@ textarea {
     height: 100px;
 }
 
+.customTextInput {
+    background-color: var(--primary);
+    width: 400px;
+    height: 250px;
+
+    display: none;
+
+    position: fixed;
+    top: 400px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    border: solid var(--background) 6px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.centered {
+    display: block;
+    text-align: center;
+}
+
 #songSelection {
     max-height: 500px;
     overflow-y: scroll;

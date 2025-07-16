@@ -36,15 +36,41 @@ class Song {
         return Conn::conn()->query("SELECT id, title FROM `song` WHERE id IN ($idString) ORDER BY FIELD (id, $idString)")->fetch_all(MYSQLI_ASSOC);
     }
 
-    static function getTextList($idString) {
+    static function getTextList($idString, array $custom = []) {
         $idList = explode(",", $idString);
 
+        $customSongs = [];
+
+        foreach($custom as $song)
+            $customSongs[$song[0]] = $song[1];
+
+        $normal = [];
+
         foreach($idList as $id) {
-            if(!is_numeric($id))
-                return [];
+            if($id[0] != "C")
+                $normal[] = $id;
         }
 
-        return Conn::conn()->query("SELECT `text` FROM `song` WHERE id IN ($idString) ORDER BY FIELD (id, $idString)")->fetch_all(MYSQLI_ASSOC);
+        $normalString = implode(",", $normal);
+
+        $normalSongs = Conn::conn()->query("SELECT `text` FROM `song` WHERE id IN ($normalString) ORDER BY FIELD (id, $normalString)")->fetch_all(MYSQLI_ASSOC);
+
+        if(count($customSongs) == 0)
+            return $normalSongs;
+
+        $allSongs = [];
+
+        $i = 0;
+        foreach($idList as $id) {
+            if($id[0] != "C") {
+                $allSongs[] = $normalSongs[$i];
+                $i++;
+            }
+            else if(isset($customSongs[substr($id, 1)]))
+                $allSongs[] = ["text" => "[x]" . $customSongs[substr($id, 1)]];
+        }
+
+        return $allSongs;
     }
 
     static function getTop() {

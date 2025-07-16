@@ -14,8 +14,8 @@ function footerComponent() {
                     </div>
                     <div class="footerElement">
                         <h3>Pomoc</h3>
-                        <p><a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light">Github</a></p>
-                        <p><a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md">Instrukcja</a></p>
+                        <p><a target="blank" href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light">Github</a></p>
+                        <p><a target="blank" href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md">Instrukcja</a></p>
                     </div>
                 </footer>
             </body>

@@ -40,7 +40,7 @@ if(!isset($_POST["refresh"]) && isset($_POST["songs"])) {
 ?>
 <form method="post"  class="details basicForm">
     <h1>Edycja prezentacji</h1>
-    <a href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#edycja-prezentacji">Pomoc</a>
+    <a target="blank" href="https://github.com/M4gnez-thxforstealingmyusername/spiewnik-one-light/blob/main/instrukcja.md#edycja-prezentacji">Pomoc</a>
     <div class="spacerHalf"></div>
     <input type="text" autocomplete="off" name="title" value="<?php echo $_POST["title"] ?? $presentation["title"] ?>" required placeholder="Tytuł..." maxlength="50">
     <div class="spacerHalf"></div>
