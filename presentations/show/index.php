@@ -6,7 +6,7 @@
 
 <pre id="display"></pre>
 <script>
-    var songs = <?php echo json_encode(Song::getTextList($_GET["songs"] ?? "", json_decode($_GET["custom"] ?? "[]"))) ?>
+    var songs = <?php echo json_encode(Song::getTextList($_GET["songs"] ?? "", json_decode($_GET["custom"] ?? "[]", true))) ?>
 
     console.log(songs);
     console.log("test");

@@ -24,7 +24,7 @@ $order = 0;
     <ol id="songList"></ol>
 
     <button id="addSongButton">Dodaj kolejną pieśń</button>
-    <input type="submit" value="Odśwież listę pieśni" name="refresh">
+    <!--<input type="submit" value="Odśwież listę pieśni" name="refresh">-->
     <div class="spacerHalf"></div>
 
     <div id="songSelectionHolder">
@@ -58,7 +58,7 @@ footerComponent();
         $normalSongs = [];
         $customTexts = [];
 
-        for($i = 0; $i < count($_POST["customID"]); $i++)
+        for($i = 0; $i < count($_POST["customID"] ?? []); $i++)
             $customTexts[$_POST["customID"][$i]] = [ "id" => $_POST["customID"][$i], "custom" => $_POST["customText"][$i]];
 
         foreach ($_POST["songs"] as $element) {

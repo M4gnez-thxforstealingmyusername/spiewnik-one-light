@@ -26,10 +26,18 @@ else {
 
     <ol>
         <?php
-            foreach(Song::getList($presentation["songs"]) as $song) {
+            foreach(Song::getList($presentation["songs"], json_decode($presentation["custom"] ?? [], true)) as $song) {
+                if(is_numeric($song["id"]))
+                    echo '<a href="' . SERVER_ROOT . '/song/?id=' . $song["id"] . '">';
+                else
+                    echo "<i>";
                 ?>
-                    <a href="<?php echo SERVER_ROOT ?>/song/?id=<?php echo $song["id"] ?>"><li><?php echo $song["title"] ?></li></a>
+                    <li><?php echo $song["title"] ?></li>
                 <?php
+                if(is_numeric($song["id"]))
+                    echo "</a>";
+                else
+                    echo "</i>";
             }
         ?>
     </ol>
@@ -50,6 +58,10 @@ footerComponent();
 <script>
     function openPresentation(event) {
         event.preventDefault();
-        window.open("<?php echo SERVER_ROOT ?>/presentations/show/?songs=<?php echo $presentation["songs"] ?>", '_blank', 'width=1920,height=1080,fullscreen=yes,toolbar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no');
+
+        window.open('<?php echo SERVER_ROOT ?>/presentations/show/?songs=<?php echo $presentation["songs"] ?>&custom=<?php echo $presentation["custom"] ?>',
+        'blank',
+        'width=1920,height=1080,fullscreen=yes,toolbar=no,scrollbars=no,resizable=no,location=no,directories=no,status=no'
+        );
     }
 </script>

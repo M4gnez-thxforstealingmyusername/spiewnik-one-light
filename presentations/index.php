@@ -21,7 +21,7 @@ $search = $_GET["search"] ?? "";
 <div class="searchList">
 <?php
 foreach(Presentation::getPage($page, $search) as $presentation) {
-    presentationComponent($presentation["id"], $presentation["title"], $presentation["userId"], $presentation["songs"], $presentation["uploadDate"]);
+    presentationComponent($presentation["id"], $presentation["title"], $presentation["userId"], $presentation["songs"], $presentation["custom"], $presentation["uploadDate"]);
 }
 ?>
 </div>

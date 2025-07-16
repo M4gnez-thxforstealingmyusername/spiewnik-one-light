@@ -18,15 +18,12 @@ if($_SESSION["authorizationLevel"] < 1) {
 $order = 0;
 
 if(!isset($_POST["refresh"]) && isset($_POST["songs"])) {
-    $songArrayList = [];
+    $customTexts = [];
 
-    foreach ($_POST["songs"] as $element) {
-        if($element[0] != "C")
-        $songArrayList[] = $element;
-    }
+    for($i = 0; $i < count($_POST["customID"] ?? []); $i++)
+    $customTexts[$_POST["customID"][$i]] = [ "id" => $_POST["customID"][$i], "custom" => $_POST["customText"][$i]];
 
-    $songIdList = implode(",", $songArrayList);
-    Presentation::add($_POST["title"] ?? "Prezentacja bez nazwy", $_SESSION["id"], $songIdList, isset($_POST["isPermanent"]));
+    Presentation::add($_POST["title"] ?? "Prezentacja bez nazwy", $_SESSION["id"], implode(",", $_POST["songs"]), $customTexts, isset($_POST["isPermanent"]));
     header("Location: " . SERVER_ROOT . "/presentation/?id=" . Presentation::getTop()[0]["id"]);
 }
 
@@ -50,8 +47,8 @@ if(!isset($_POST["refresh"]) && isset($_POST["songs"])) {
 
     <ol id="songList"></ol>
 
+    <!--<input type="submit" value="Odśwież listę pieśni" name="refresh">-->
     <button id="addSongButton">Dodaj kolejną pieśń</button>
-    <input type="submit" value="Odśwież listę pieśni" name="refresh">
     <div class="spacerHalf"></div>
 
     <div id="songSelectionHolder">
@@ -90,7 +87,7 @@ footerComponent();
         $normalSongs = [];
         $customTexts = [];
 
-        for($i = 0; $i < count($_POST["customID"]); $i++)
+        for($i = 0; $i < count($_POST["customID"] ?? []); $i++)
             $customTexts[$_POST["customID"][$i]] = [ "id" => $_POST["customID"][$i], "custom" => $_POST["customText"][$i]];
 
         foreach ($_POST["songs"] as $element) {

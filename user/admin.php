@@ -27,6 +27,7 @@ if($_SESSION["authorizationLevel"] < 4) {
         <a class="highlight" href="<?php echo SERVER_ROOT . "/user/admin.php/?panel=users" ?>">Użytkownicy</a>
         <a class="highlight" href="<?php echo SERVER_ROOT . "/user/admin.php/?panel=clearPresentations" ?>">Oczyść prezentacje</a>
         <a class="highlight" href="<?php echo SERVER_ROOT . "/user/admin.php/?panel=quickAdd" ?>">Szybkie dodawanie</a>
+        <a class="highlight" href="<?php echo SERVER_ROOT . "/user/admin.php/?panel=repeater" ?>">Repeater</a>
     </div>
 <?php
 switch($_GET["panel"] ?? ""){
@@ -98,6 +99,10 @@ switch($_GET["panel"] ?? ""){
                 <input type="submit" value="Zapisz">
             </form>
         <?php
+        break;
+    case "repeater":
+        include "./adminTools/repeater.php";
+        break;
 }
 
 ?>

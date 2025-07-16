@@ -44,18 +44,22 @@ class Presentation {
         return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
     }
 
-    static function add($title, $userId, $songs, $isPermanent) {
-        $stmt = Conn::conn()->prepare("INSERT INTO `presentation` values (DEFAULT, ?, ?, ?, DEFAULT, ?)");
+    static function add($title, $userId, string $songs, $custom, $isPermanent) {
+        $custom = json_encode($custom);
 
-        $stmt->bind_param("sisi", $title, $userId, $songs, $isPermanent);
+        $stmt = Conn::conn()->prepare("INSERT INTO `presentation` values (DEFAULT, ?, ?, ?, ?, DEFAULT, ?)");
+
+        $stmt->bind_param("sissi", $title, $userId, $songs, $custom, $isPermanent);
 
         $stmt->execute();
     }
 
-    static function update($id, $title, $songs, $isPermanent) {
-        $stmt = Conn::conn()->prepare("UPDATE `presentation` SET `title` = ?, `songs` = ?, `isPermanent` = ? WHERE id = ?");
+    static function update($id, $title, string $songs, $custom, $isPermanent) {
+        $custom = json_encode($custom);
 
-        $stmt->bind_param("ssii", $title, $songs, $isPermanent, $id);
+        $stmt = Conn::conn()->prepare("UPDATE `presentation` SET `title` = ?, `songs` = ?, `custom` = ?, `isPermanent` = ? WHERE id = ?");
+
+        $stmt->bind_param("sssii", $title, $songs, $custom, $isPermanent, $id);
 
         $stmt->execute();
     }
